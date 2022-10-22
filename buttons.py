@@ -38,7 +38,7 @@ class ButtonsMaker:
         for label, subrole in self.config['roles'][role]['subroles'].items():
             buttons.append(self.make_button(subrole['name'], state | {'subrole': label}))
 
-        return self.make_grid(buttons, columns=1) + self.make_back_button()
+        return self.make_grid(buttons, columns=1) + self.make_back_button(state)
 
     def make_buttons_for_dates(self, state: dict):
         buttons = []
@@ -46,7 +46,7 @@ class ButtonsMaker:
         for date in dates:
             buttons.append(self.make_button(date.isoformat(), state | {'date': date}))
 
-        return self.make_grid(buttons, columns=1) + self.make_back_button()
+        return self.make_grid(buttons, columns=1) + self.make_back_button(state)
 
     def make_buttons_for_times(self, state: dict):
         role = state['role']
@@ -62,10 +62,10 @@ class ButtonsMaker:
         if not buttons:
             return None
 
-        return self.make_grid(buttons, columns=3) + self.make_back_button()
+        return self.make_grid(buttons, columns=3) + self.make_back_button(state)
 
-    def make_back_button(self):
-        return [[self.make_button("Вернуться в начало", {'cmd': 'c'})]]
+    def make_back_button(self, state: dict):
+        return [[self.make_button("Вернуться в начало", {'cmd': 'c', 'username': state['username']})]]
 
     def make_confirm_button(self, state: dict):
-        return [[self.make_button("Подтвердить", state | {'cmd': 'f'})]] + self.make_back_button()
+        return [[self.make_button("Подтвердить", state | {'cmd': 'f'})]] + self.make_back_button(state)
