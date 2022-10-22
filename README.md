@@ -1,5 +1,4 @@
-# mit_volunteers_bot
-MIT Volunteers Bot
+# MIT Volunteers Bot
 
 Бот для волонтеров IT-мобилизации. 
 
