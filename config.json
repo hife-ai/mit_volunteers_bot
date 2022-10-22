@@ -1,0 +1,70 @@
+{
+  "roles": {
+    "chat": {
+      "name": "ЧАТ",
+      "subroles": {
+        "leader": {
+          "name": "ЛИД ЧАТ"
+        },
+        "normal": {
+          "name": "Работа с ЧАТом"
+        }
+      }
+    },
+    "tables": {
+      "name": "Таблички",
+      "subroles": {
+        "leader": {
+          "name": "ЛИД Таблички"
+        },
+        "line1": {
+          "name": "Таблички 1я линия"
+        },
+        "line2": {
+          "name": "Таблички 2я линия"
+        }
+      }
+    },
+    "notion": {
+      "name": "Notion",
+      "subroles": {
+        "leader": {
+          "name": "ЛИД Notion"
+        },
+        "normal": {
+          "name": "Работа с Notion"
+        }
+      }
+    },
+    "summons": {
+      "name": "Повестки",
+      "subroles": {
+        "leader": {
+          "name": "ЛИД Повестки"
+        },
+        "normal": {
+          "name": "Работа с повестками"
+        }
+      }
+    },
+    "boss": {
+      "name": "БОСС",
+      "subroles": {
+        "normal": {
+          "name": "normal"
+        }
+      }
+    },
+    "lawyer": {
+      "name": "Юридическая помощь",
+      "subroles": {
+        "normal": {
+          "name": "normal"
+        }
+      }
+    }
+  },
+  "times": {
+    "chat": [12, 15, 18]
+  }
+}
