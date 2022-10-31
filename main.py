@@ -100,7 +100,7 @@ def send_notifications():
         bot.send_message(entry.chat_id, f"@{entry.username}, Вы записаны на роль {entry.subrole} на время {entry['datetime']}.", reply_markup=markup)
 
 def check_confirmations():
-    entries = db.get_nearest_unconfirmed_entries('15 minutes')
+    entries = db.get_nearest_missed_entries('15 minutes')
     for _, entry in entries.iterrows():
         db.set_entry_status(entry.id, "missed; admins notified")
         notify_admin_person_unavailable(entry.id)

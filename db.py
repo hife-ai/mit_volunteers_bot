@@ -34,11 +34,24 @@ def get_nearest_unconfirmed_entries(deadline: str):
         SELECT id, username, chat_id, subrole, datetime
         FROM schedule
         JOIN users USING (username)
+        WHERE status = 'unconfirmed'
+          AND rolename = 'ЧАТ'
+          AND datetime - now() < '{deadline}'
+          AND datetime - now() > '0 seconds'
+    """, con)
+
+
+def get_nearest_missed_entries(deadline: str):
+    return pd.read_sql_query(f"""
+        SELECT id, username, chat_id, subrole, datetime
+        FROM schedule
+        JOIN users USING (username)
         WHERE status in ('unconfirmed', 'notification sent')
           AND rolename = 'ЧАТ'
           AND datetime - now() < '{deadline}'
           AND datetime - now() > '0 seconds'
     """, con)
+
 
 
 def set_entry_status(id: int, status: str):
