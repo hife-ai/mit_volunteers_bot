@@ -64,8 +64,15 @@ class ButtonsMaker:
 
         return self.make_grid(buttons, columns=3) + self.make_back_button(state)
 
+
     def make_back_button(self, state: dict):
         return [[self.make_button("Вернуться в начало", {'cmd': 'c', 'username': state['username']})]]
 
     def make_confirm_button(self, state: dict):
         return [[self.make_button("Подтвердить", state | {'cmd': 'f'})]] + self.make_back_button(state)
+
+    def make_notification_buttons(self, entry_id: int):
+        return self.make_grid([
+            types.InlineKeyboardButton("Подтвердить", callback_data=f"notification;confirmed;{entry_id}"),
+            types.InlineKeyboardButton("Отказаться", callback_data=f"notification;refused;{entry_id}")
+        ], columns=1)
