@@ -51,7 +51,7 @@
       "name": "БОСС",
       "subroles": {
         "normal": {
-          "name": "БОСС"
+          "name": "normal"
         }
       }
     },
@@ -59,12 +59,12 @@
       "name": "Юридическая помощь",
       "subroles": {
         "normal": {
-          "name": "Юридическая помощь"
+          "name": "normal"
         }
       }
     }
   },
   "times": {
-    "chat": [12, 15, 18]
+    "chat": [7, 13, 18]
   }
 }
